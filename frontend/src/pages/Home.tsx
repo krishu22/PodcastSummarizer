@@ -1,40 +1,22 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/authContexts';
-import { doSignOut } from '../config/auth';
 import Login from '../components/auth/Login';
+import HandleUpload from '../components/core/HandleUpload';
 import Signup from '../components/auth/Signup';
 
 const Home: React.FC = () => {
   const { currentUser, userLoggedIn } = useAuth();
-  const navigate = useNavigate();
-
-  const handleSignOut = async () => {
-    try {
-      await doSignOut();
-      navigate('/login');
-    } catch (error) {
-      console.error('Error signing out:', error);
-    }
-  };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-900 via-gray-800 to-black flex items-center justify-center p-4">
-      <div className="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md">
-        <h1 className="text-3xl font-bold text-white mb-6 text-center">Welcome to Home!</h1>
+    <div className="min-h-screen w-[100%] bg-gradient-to-b from-blue-200 via-gray-800 to-blue-800 flex items-center justify-center my-[-30px]">
+      <div className="bg-gray-800 mx-[30px] p-8 rounded-lg shadow-xl w-[100%] max-w-[100vw] md:max-w-[100vw] h-[85vh]">
         {userLoggedIn && currentUser ? (
-          <div className="text-center">
-            <p className="text-gray-300 mb-4">You are logged in as {currentUser.email}</p>
-            <button
-              onClick={handleSignOut}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-medium rounded px-6 py-2 transition duration-200"
-            >
-              Sign Out
-            </button>
-          </div>
+          <HandleUpload />
         ) : (
           <div>
-            <p className="text-gray-300 mb-4 text-center">You are not logged in.</p>
+            <p className="text-gray-300 mb-4 text-center">
+              You are not logged in.
+            </p>
             <Login />
             <Signup />
           </div>

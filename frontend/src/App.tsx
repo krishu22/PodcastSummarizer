@@ -7,6 +7,7 @@ import Signup from './components/auth/Signup';
 
 const App: React.FC = () => {
   return (
+    <div className='w-[100vw] h-[100vh] flex justify-center items-center'>
     <AuthProvider>
       <Router>
         <Routes>
@@ -18,6 +19,7 @@ const App: React.FC = () => {
         </Routes>
       </Router>
     </AuthProvider>
+    </div>
   );
 };
 
