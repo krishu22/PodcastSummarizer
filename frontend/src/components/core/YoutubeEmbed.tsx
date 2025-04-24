@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import axios from "axios";
 import type { EmotionData } from "../../schemas/emotion-types";
 import EmotionGraph from "./EmotionGraph";
@@ -134,7 +134,7 @@ const handleEmotion = async () => {
             setError("");
           }}
           placeholder="YouTube URL"
-          className="flex-1 p-3 rounded-lg border border-gray-300 dark:border-gray-700 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="flex-1 p-2 rounded-lg border border-gray-300 dark:border-gray-700 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
         <button
           onClick={handleValidate}
